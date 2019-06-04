@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons margin-top>
+      <ion-menu-button slot="start" auto-hide="false"></ion-menu-button>
+      <ion-title *ngIf="!currentPageTitle" ><strong>Deliver</strong></ion-title>
+      <ion-title *ngIf="currentPageTitle" ><strong>{{currentPageTitle}}</strong></ion-title>
+      <ion-icon name="notifications" slot="icon-only" class="cursor"></ion-icon>
+    </ion-buttons>
+
+    <ion-searchbar class="border"></ion-searchbar>
+
+  </ion-toolbar>
+</ion-header>

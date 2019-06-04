@@ -1,0 +1,48 @@
+.time {
+    color: gray;
+    font-size: 12px;
+}
+
+.info-green {
+    color: green;
+    font-size: 14px;
+}
+.info-yellow {
+    color: yellow;
+    font-size: 14px;
+}
+.info-red {
+    color: red;
+    font-size: 14px;
+}
+
+ion-slide {
+    width: 100%;
+    overflow: hidden;
+}
+
+ion-item {
+    width: 95%;
+    cursor: pointer;
+}
+
+ion-list {
+    width: 100%;
+}
+
+ion-icon[name=arrow-dropright] {
+    font-size: 45px;
+}
+
+ion-content {
+    background-color:  #eff1f1;
+}
+
+.smaller {
+    font-size: 15px;
+}
+
+ion-item[color=light] {
+    width: 100%;
+    cursor: unset;
+}

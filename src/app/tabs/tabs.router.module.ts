@@ -1,3 +1,5 @@
+import { MapPageModule } from './../pages/map/map.module';
+import { OrdersPageModule } from './../pages/orders/orders.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
@@ -8,42 +10,33 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'orders',
         children: [
           {
             path: '',
-            loadChildren: '../tab1/tab1.module#Tab1PageModule'
+            loadChildren: '../pages/orders/orders.module#OrdersPageModule'
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'map',
         children: [
           {
             path: '',
-            loadChildren: '../tab2/tab2.module#Tab2PageModule'
-          }
-        ]
-      },
-      {
-        path: 'tab3',
-        children: [
-          {
-            path: '',
-            loadChildren: '../tab3/tab3.module#Tab3PageModule'
+            loadChildren: '../pages/map/map.module#MapPageModule'
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/orders',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/orders',
     pathMatch: 'full'
   }
 ];

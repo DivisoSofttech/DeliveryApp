@@ -1,0 +1,76 @@
+<app-header [currentPageTitle]="'Orders'"></app-header>
+
+<ion-content>
+    <ion-segment [value]="currentPage" (ionChange)="segmentChange($event)">
+        <ion-segment-button value="discover">
+            <ion-label>Discover</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="pending">
+            <ion-label>Pending</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="today">
+            <ion-label>Today</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+    <ion-slides #slides (ionSlideDidChange)="slideChange()">
+        <ion-slide>
+            <ion-list>
+                <ion-item [routerLink]="['/order-details']">
+                    <ion-label text-wrap text-start>Spice India <br> <span class="time">2:45 PM</span></ion-label>
+                    <ion-label text-end>&#8364;24<br><span class="info-yellow">Pending</span></ion-label>
+                   
+                </ion-item>
+                <ion-item [routerLink]="['/order-details']">
+                    <ion-label text-wrap text-start>Indian Taste <br> <span class="time">1:30 PM</span></ion-label>
+                    <ion-label text-end>&#8364;17<br><span class="info-red">Cancelled</span></ion-label>
+                   
+                </ion-item>
+                <ion-item [routerLink]="['/order-details']">
+                    <ion-label text-wrap text-start>Extra Spice <br> <span class="time">12:11 PM</span></ion-label>
+                    <ion-label text-end>&#8364;32<br><span class="info-yellow">Pending</span></ion-label>
+                   
+                </ion-item>
+            </ion-list>
+        </ion-slide>
+        <ion-slide>
+            <ion-list>
+                <ion-item [routerLink]="['/order-details']">
+                    <ion-label text-wrap text-start>Spice India <br> <span class="time">2:45 PM</span></ion-label>
+                    <ion-label text-end>&#8364;24<br><span class="info-yellow">Pending</span></ion-label>
+                </ion-item>
+                <ion-item [routerLink]="['/order-details']">
+                    <ion-label text-wrap text-start>Indian Taste <br> <span class="time">1:30 PM</span></ion-label>
+                    <ion-label text-end>&#8364;17<br><span class="info-yellow">Pending</span></ion-label>
+                   
+                </ion-item>
+                <ion-item [routerLink]="['/order-details']">
+                    <ion-label text-wrap text-start>Extra Spice <br> <span class="time">12:11 PM</span></ion-label>
+                    <ion-label text-end>&#8364;32<br><span class="info-yellow">Pending</span></ion-label>
+                   
+                </ion-item>
+            </ion-list>
+        </ion-slide>
+        <ion-slide>
+            <ion-list>
+                <ion-item [routerLink]="['/order-details']">
+                    <ion-label text-wrap text-start>Spice India <br> <span class="time">2:45 PM</span></ion-label>
+                    <ion-label text-end>&#8364;24<br><span class="info-green">Delivered</span></ion-label>
+                </ion-item>
+                <ion-item [routerLink]="['/order-details']">
+                    <ion-label text-wrap text-start>Indian Taste <br> <span class="time">1:30 PM</span></ion-label>
+                    <ion-label text-end>&#8364;17<br><span class="info-green">Delivered</span></ion-label>
+                </ion-item>
+                <ion-item [routerLink]="['/order-details']">
+                    <ion-label text-wrap text-start>Extra Spice <br> <span class="time">12:11 PM</span></ion-label>
+                    <ion-label text-end>&#8364;32<br><span class="info-green">Delivered</span></ion-label>
+                </ion-item>
+                <ion-item color="light">
+                    <ion-label text-start text-wrap class="smaller">Summary:</ion-label>
+                    <ion-label text-center><span class="info-green">Delivered</span><br>3</ion-label>
+                    <ion-label text-center><span class="info-yellow">Pending</span><br>0</ion-label>
+                    <ion-label text-end>&#8364; 73</ion-label>
+                </ion-item>
+            </ion-list>
+        </ion-slide>
+    </ion-slides>
+</ion-content>
