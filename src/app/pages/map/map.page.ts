@@ -45,29 +45,26 @@ export class MapPage implements OnInit {
     };
 
     this.map = GoogleMaps.create('map_canvas', mapOptions);
-    this.map.getMyLocation().then((location: MyLocation) => {
-      console.log(JSON.stringify(location, null, 2));
+    this.map
+      .getMyLocation()
+      .then((location: MyLocation) => {
+        console.log(JSON.stringify(location, null, 2));
 
-      // Move the map camera to the location with animation
-      this.map.animateCamera({
-        target: location.latLng,
-        zoom: 17,
-        tilt: 30
+        // Move the map camera to the location with animation
+        this.map.animateCamera({
+          target: location.latLng,
+          zoom: 17,
+          tilt: 30
+        });
+        const marker: Marker = this.map.addMarkerSync({
+          position: location.latLng,
+          animation: GoogleMapsAnimation.BOUNCE
+        });
+        marker.showInfoWindow();
+      })
+      .catch(err => {
+        this.showToast(err.error_message);
       });
-      const marker: Marker = this.map.addMarkerSync({
-        title: '@ionic-native/google-maps plugin!',
-        snippet: 'This plugin is awesome!',
-        position: location.latLng,
-        animation: GoogleMapsAnimation.BOUNCE
-      });
-      marker.showInfoWindow();
-      marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-        alert('clicked');
-      });
-    })
-    .catch(err => {
-      this.showToast(err.error_message);
-    });
   }
 
   async showToast(message: string) {
@@ -78,5 +75,5 @@ export class MapPage implements OnInit {
     });
 
     toast.present();
-}
+  }
 }

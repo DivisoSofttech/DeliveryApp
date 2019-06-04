@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
-
+import { IonSlides, Platform, ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.page.html',
@@ -9,9 +8,10 @@ import { IonSlides } from '@ionic/angular';
 export class OrdersPage implements OnInit {
   currentPage = 'discover';
   @ViewChild('slides') slides: IonSlides;
-  constructor() {}
+  constructor(private platform: Platform, private toastCtrl: ToastController) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   slideChange() {
     let index: any;
